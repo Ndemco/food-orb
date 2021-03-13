@@ -1,0 +1,5 @@
+<ul>
+   <li *ngFor="let restaurant of restaurants" (click)="goToMenu(restaurant.id)">
+      {{ restaurant.name }}
+   </li>
+</ul>

@@ -1,0 +1,5 @@
+<ul *ngIf="menu">
+   <li *ngFor="let menuItem of menu.items">
+      {{ menuItem.itemName }} : {{ menuItem.price }} <button>Add to Cart</button>
+   </li>
+</ul>
