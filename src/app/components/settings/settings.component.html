@@ -1,43 +1,61 @@
-<button>Edit Profile</button>
-<form class="col-md-6 offset-md-3" [formGroup]="editForm" (ngSubmit)="handleEditUserSubmit()">
-   <div class="form-group row">
-      <label for="name" class="col-sm-2 col-form-label">Name</label>
-      <div class="col-sm-10">
-         <input type="text" class="form-control" placeholder="Enter Name" formControlName="name"
-            [ngClass]="{ 'is-invalid': editForm.get('name')?.touched && editForm.get('name')?.invalid }" />
-         <div class="invalid-feedback">
-            <div>Name is required</div>
-         </div>
-      </div>
+<div class="container">
+   <div class="row">
+      <img src="../../../assets/icon.jpg" style="height: 120px; width: 120px" alt="FOOD-ORB" class="mt-2 ml-2" />
    </div>
 
-   <div class="form-group row">
-      <label for="email" class="col-sm-2 col-form-label">Email</label>
-      <div class="col-sm-10">
-         <input type="email" class="form-control" placeholder="Enter Email" formControlName="email"
-            [ngClass]="{ 'is-invalid': editForm.get('email')?.touched && editForm.get('email')?.invalid }" />
-         <div class="invalid-feedback">
-            <div *ngIf="editForm.get('email')?.errors?.required">Email is required</div>
-            <div *ngIf="editForm.get('email')?.errors?.email">Email seems to not be valid</div>
-         </div>
-      </div>
+   <div class="text-right">
+      <button type="button" class="btn btn-secondary" routerLink="/home">Home</button>
    </div>
+   <div class="row mt-5">
+      <div class="col-md-2">
+         <button class="btn btn-primary ml-auto" (click)="enableForm()">Edit Profile</button>
+      </div>
+      <div class="col-md-8">
+         <form style="border:1px solid black" class="col-md-8 mr-auto" [formGroup]="editForm" (ngSubmit)="handleEditUserSubmit()">
+            <img class="text-center mr-auto ml-auto" src="../../../assets/profile-icon.jpg" style="height: 120px; width: 120px; display: block">
+            <div class="form-group row">
+               <label for="name" class="col-sm-2 col-form-label">Name</label>
+               <div class="col-sm-10">
+                  <input type="text" class="form-control" placeholder="Enter Name" formControlName="name"
+                     [ngClass]="{ 'is-invalid': editForm.get('name')?.touched && editForm.get('name')?.invalid }" />
+                  <div class="invalid-feedback">
+                     <div>Name is required</div>
+                  </div>
+               </div>
+            </div>
 
-   <div class="form-group row">
-      <label for="phone" class="col-sm-2 col-form-label">Phone Number</label>
-      <div class="col-sm-10">
-         <input type="text" class="form-control" placeholder="Enter Phone Number" formControlName="phone"
-            [ngClass]="{ 'is-invalid': editForm.get('phone')?.touched && editForm.get('phone')?.invalid }" />
-         <div class="invalid-feedback">
-            <div *ngIf="editForm.get('phone')?.required">Phone number is required</div>
-            <div *ngIf="editForm.get('phone')?.errors?.minlength">Phone number must be 10 characters (ex. 1112223333)</div>
-         </div>
-      </div>
-   </div>
+            <div class="form-group row">
+               <label for="email" class="col-sm-2 col-form-label">Email</label>
+               <div class="col-sm-10">
+                  <input type="email" class="form-control" placeholder="Enter Email" formControlName="email"
+                     [ngClass]="{ 'is-invalid': editForm.get('email')?.touched && editForm.get('email')?.invalid }" />
+                  <div class="invalid-feedback">
+                     <div *ngIf="editForm.get('email')?.errors?.required">Email is required</div>
+                     <div *ngIf="editForm.get('email')?.errors?.email">Email seems to not be valid</div>
+                  </div>
+               </div>
+            </div>
 
-   <div class="form-group row">
-      <div class="col-sm-10 offset-sm-2">
-         <button type="submit" class="btn btn-primary" [disabled]="editForm.invalid">Submit</button>
+            <div class="form-group row">
+               <label for="phone" class="col-sm-2 col-form-label">Phone</label>
+               <div class="col-sm-10">
+                  <input type="text" class="form-control" placeholder="Enter Phone Number" formControlName="phone"
+                     [ngClass]="{ 'is-invalid': editForm.get('phone')?.touched && editForm.get('phone')?.invalid }" />
+                  <div class="invalid-feedback">
+                     <div *ngIf="editForm.get('phone')?.required">Phone number is required</div>
+                     <div *ngIf="editForm.get('phone')?.errors?.minlength">Phone number must be 10 characters (ex.
+                        1112223333)</div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="form-group row">
+               <div class="col-sm-10 offset-sm-2">
+                  <button type="submit" class="btn btn-primary" [disabled]="editForm.invalid"
+                     (click)="handleEditUserSubmit()">Submit</button>
+               </div>
+            </div>
+         </form>
       </div>
    </div>
-</form>
+</div>

@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { Friend } from 'src/app/models/friend';
 import { User } from 'src/app/models/user';
 
 type UserFormData = {
@@ -22,6 +23,19 @@ export class UserService {
 
   user: User;
 
+  friendsList: Friend[] = [
+    {
+      id: 12,
+      name: 'Joe'
+    },
+    {
+      id: 22,
+      name: "Jill"
+    }
+  ]
+
+
+
   constructor(private http: HttpClient) { }
 
   async registerUser(userFormData: UserFormData): Promise<User> {
@@ -35,21 +49,32 @@ export class UserService {
   login(email: string, password: string) {
     return this.http.get<User[]>(`${this.usersUrl}?email=${email}&password=${password}`)
       .pipe(map(users => {
-        if(users.length > 0) {
+        if (users.length > 0) {
           this.user = users[0];
           return;
         }
         throw new Error('Invalid credentials');
-    }), catchError(this.handleError));
+      }));
   }
 
   editUser(name: string, email: string, phone: string) {
     this.http.put<User>(`${this.usersUrl}/${this.user.id}`,
-      {...this.user, name, email, phone}).subscribe({
+      { ...this.user, name, email, phone }).subscribe({
         next: ((user: User) => {
           this.user = user;
-        }).bind(this)
+        }).bind(this),
+        error: () => {}
       });
+  }
+
+  addFriend(id: number) {
+    return this.http.get<User>(`${this.usersUrl}/${id}`)
+      .subscribe({
+        next: ((user: User) => {
+          console.log(user.id, user.name);
+          this.friendsList.push({id: user.id, name: user.name})
+      }).bind(this)
+    });
   }
 
   /*

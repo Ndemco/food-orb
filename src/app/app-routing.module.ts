@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddFriendsComponent } from './components/add-friends/add-friends.component';
+import { FriendsComponent } from './components/friends/friends.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -26,6 +28,14 @@ const routes: Routes = [
   {
     path: 'settings',
     component: SettingsComponent
+  },
+  {
+    path: 'find-friends',
+    component: FriendsComponent
+  },
+  {
+    path: 'add-friends',
+    component: AddFriendsComponent
   }
 ];
 

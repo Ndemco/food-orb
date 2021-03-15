@@ -12,6 +12,8 @@ import { HomeComponent } from './components/home/home.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { FriendsComponent } from './components/friends/friends.component';
+import { AddFriendsComponent } from './components/add-friends/add-friends.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { SettingsComponent } from './components/settings/settings.component';
     HomeComponent,
     FeedComponent,
     MenuComponent,
-    SettingsComponent
+    SettingsComponent,
+    FriendsComponent,
+    AddFriendsComponent
   ],
   imports: [
     BrowserModule,

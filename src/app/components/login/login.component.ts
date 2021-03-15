@@ -9,6 +9,9 @@ import { UserService } from 'src/app/services/user/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  validCredentials = true;
+
   loginForm: any;
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
     this.loginForm = this.fb.group({
@@ -23,7 +26,11 @@ export class LoginComponent implements OnInit {
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
     this.userService.login(email, password).subscribe({
-      next: () => this.router.navigate(['home'])
+      next: () => this.router.navigate(['home']),
+      error: (err) => {
+        this.validCredentials = false;
+        this.loginForm.reset();
+      }
     });
   }
 

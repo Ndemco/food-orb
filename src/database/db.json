@@ -1,0 +1,75 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Nick",
+      "email": "",
+      "phone": "",
+      "password": "password"
+    }
+  ],
+  "restaurants": [
+    {
+      "id": 1,
+      "name": "Nick's Place",
+      "location": "Danbury, CT",
+      "rating": 5,
+      "thumbnailUrl": ""
+    },
+    {
+      "id": 2,
+      "name": "Mike's Pizza",
+      "location": "Danbury, CT",
+      "rating": 5,
+      "thumbnailUrl": ""
+    },
+    {
+      "id": 3,
+      "name": "Tom's Bistro",
+      "location": "Brewster, NY",
+      "rating": 4.5,
+      "thumbnailUrl": ""
+    }
+  ],
+  "menus": [
+    {
+      "restaurantId": 1,
+      "items": [
+        {
+          "itemName": "Burger",
+          "price": 1
+        },
+        {
+          "itemName": "Pasta",
+          "price": 3
+        }
+      ]
+    },
+    {
+      "restaurantId": 2,
+      "items": [
+        {
+          "itemName": "Burger",
+          "price": 1
+        },
+        {
+          "itemName": "Pasta",
+          "price": 3
+        }
+      ]
+    },
+    {
+      "restaurantId": 3,
+      "items": [
+        {
+          "itemName": "Burger",
+          "price": 1
+        },
+        {
+          "itemName": "Pasta",
+          "price": 3
+        }
+      ]
+    }
+  ]
+}

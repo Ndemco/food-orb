@@ -1,5 +1,20 @@
+<div class="row">
+   <img src="../../../assets/icon.jpg" style="height: 120px; width: 120px" alt="FOOD-ORB" class="mt-2 ml-2" />
+</div>
+
+<div class="text-right">
+   <button type="button" class="btn btn-secondary" routerLink="/settings">Settings</button>
+</div>
+
 <ul>
-   <li *ngFor="let restaurant of restaurants" (click)="goToMenu(restaurant.id)">
-      {{ restaurant.name }}
+   <li style="list-style-type: none" *ngFor="let restaurant of restaurants">
+      <div class="card" style="width: 18rem">
+         <img class="card-img-top" src="../../../assets/icon.jpg" alt="FOOD">
+         <div class="card-body">
+            <h5>{{ restaurant.name }}</h5>
+         </div>
+         <button class="btn btn-primary" (click)="goToMenu(restaurant.id)">View Menu</button>
+      </div>
+      <br>
    </li>
 </ul>
